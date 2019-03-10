@@ -33,8 +33,16 @@ if [[ $outcompile -eq 0 && $outvalgrind -eq 0 && $outvalgrind -eq 0 ]]; then
 exit 0
 elif [[ $outcompile -eq 0 && $outvalgrind -eq 0 && $outvalgrind -eq 1 ]]; then
 exit 1
+elif [[ $outcompile -eq 0 && $outvalgrind -eq 1 && $outvalgrind -eq 0 ]]; then
+exit 2
 elif [[ $outcompile -eq 0 && $outvalgrind -eq 1 && $outvalgrind -eq 1 ]]; then
 exit 3
+elif [[ $outcompile -eq 1 && $outvalgrind -eq 0 && $outvalgrind -eq 0 ]]; then
+exit 4
+elif [[ $outcompile -eq 1 && $outvalgrind -eq 0 && $outvalgrind -eq 1 ]]; then
+exit 5
+elif [[ $outcompile -eq 1 && $outvalgrind -eq 1 && $outvalgrind -eq 0 ]]; then
+exit 6
 elif [[ $outcompile -eq 1 && $outvalgrind -eq 1 && $outvalgrind -eq 1 ]]; then
 exit 7
 fi
