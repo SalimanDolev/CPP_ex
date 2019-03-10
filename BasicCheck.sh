@@ -10,7 +10,7 @@ else
 outcompile=0
 fi
 
-valgrind --leak-check=full ./$executable $@
+valgrind --leak-check=full ./*.out $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outvalgrind=1
@@ -18,7 +18,7 @@ else
 outvalgrind=0
 fi
 
-valgrind --tool=helgrind ./$executable $@
+valgrind --tool=helgrind ./*.out  $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outhalgrind=1
