@@ -1,6 +1,7 @@
 #!/bin/bash
 folderName=${1}
 executable=${2}
+argument=${3}
 cd  ${folderName}
 make
 seccesfull=$?
@@ -10,7 +11,7 @@ else
 outcompile=0
 fi
 
-valgrind --leak-check=full ./*.out $@
+valgrind --leak-check=full ./$executable ${3} $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outvalgrind=1
@@ -18,7 +19,7 @@ else
 outvalgrind=0
 fi
 
-valgrind --tool=helgrind ./*.out  $@
+valgrind --tool=helgrind ./$executable ${3} $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outhalgrind=1
