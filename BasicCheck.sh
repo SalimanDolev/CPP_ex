@@ -19,7 +19,7 @@ else
 outvalgrind=0
 fi
 
-valgrind --tool=helgrind ./$executable ${3} $@
+valgrind --tool=helgrind --error-exitcode=1 ./$executable ${3} $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outhalgrind=1
