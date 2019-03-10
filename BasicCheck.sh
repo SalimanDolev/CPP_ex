@@ -11,7 +11,7 @@ else
 outcompile=0
 fi
 
-valgrind --leak-check=full ./$executable ${3} $@
+valgrind --leak-check=full --error-exitcode=1 ./$executable ${3} $@
 seccesfull=$?
 if [[ seccesfull -gt 0 ]]; then
 outvalgrind=1
